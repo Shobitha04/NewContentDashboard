@@ -194,8 +194,9 @@ body.dark-mode {
 }
 
 
-/* Languages & Skills Card Container */
+
 .languages-skills-card {
+  width: 100%; /* Take full width in its container */
   max-width: 270px;
   background-color: var(--text-light);
   border-radius: 16px;
@@ -205,11 +206,19 @@ body.dark-mode {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-left: auto; /* Pushes the card to the right */
-  transform: translateX(293px);
+  margin-left: auto; /* Align to the right */
+  transform: translateX(290px); /* Shift slightly to the right */
 }
 
-/* Skills Header */
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  .languages-skills-card {
+    max-width: 100%; /* Use full width on smaller screens */
+    transform: translateX(0); /* Remove translation for mobile */
+  }
+}
+
+/* Adjusted Skills Header */
 .skills-header {
   display: flex;
   justify-content: space-between;
@@ -217,7 +226,7 @@ body.dark-mode {
 }
 
 .skills-header h3 {
-  font-size: 1.20rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 
@@ -228,6 +237,27 @@ body.dark-mode {
   border-radius: 8px;
   font-size: 0.9rem;
 }
+.skills-count{
+  margin-left: 35px;
+}
+
+/* Updated Skills List and Item */
+.skills-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0.75rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 /* Add Skill Form */
 .add-skill-form {
@@ -236,8 +266,10 @@ body.dark-mode {
 }
 
 .skill-input {
-  flex: 1;
+  /* flex: 1; */
+  width: 150px;
   padding: 0.5rem;
+  margin: 2px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 0.9rem;
@@ -247,6 +279,7 @@ body.dark-mode {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 8px;
+  margin-left: 5px;
   background-color: var(--primary-dark);
   color: var(--text-light);
   cursor: pointer;
@@ -314,22 +347,26 @@ body.dark-mode {
   background-color: var(--dark-mode-bg);
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
+  .languages-skills-card {
+    max-width: 100%; /* Take full width on smaller screens */
+  }
+
   .skill-content {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .skill-actions {
     width: 100%;
     justify-content: flex-end;
   }
-  
-  .edit-skill-form {
-    flex-direction: column;
+
+  .skill-item {
+    padding: 0.5rem;
   }
-  
+
   .skill-button {
     width: 100%;
   }
